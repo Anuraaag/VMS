@@ -88,47 +88,18 @@
                                     </div>
                             </div>
                                 
-    
-                            <div class="form-group has-feedback {{ $errors->has('fitness_upto') ? ' has-error' : '' }}">
-                                <div class="col-md-3 col-md-offset-1" style="font-weight: bold; font-size: 17px;">Fitness Upto</div>
-                                    <div class="col-md-7">
-                                        <input id="fitness_upto" type="date" class="form-control" name="fitness_upto" placeholder="Fitness Upto" value="{{ old('fitness_upto') }}" autofocus maxlength="15" minlength="12">
-                                        <span class="glyphicon glyphicon-calendar form-control-feedback"></span>
-                                         @if ($errors->has('fitness_upto'))
+                            <div class="form-group has-feedback{{ $errors->has('owner_id') ? ' has-error' : '' }}">
+                                    <div class="col-md-10 col-md-offset-1">
+                                        <input id="owner_id" type="text" class="form-control" name="owner_id" placeholder="Owner ID" value="{{ old('owner_id') }}" required autofocus minlength="1" >
+                                        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                                        @if ($errors->has('owner_id'))
                                             <span class="help-block">
-                                            <strong>{{ $errors->first('fitness_upto') }}</strong>
+                                                <strong>{{ $errors->first('owner_id') }}</strong>
                                             </span>
                                         @endif
                                     </div>
                             </div>
     
-    
-                            <div class="form-group has-feedback {{ $errors->has('insurance_upto') ? ' has-error' : '' }}">
-                                <div class="col-md-3 col-md-offset-1" style="font-weight: bold; font-size: 17px;">Insurance Upto</div>
-                                    <div class="col-md-7">
-                                        <input id="insurance_upto" type="date" class="form-control" placeholder="Insurance Upto" name="insurance_upto" value="{{ old('insurance_upto') }}" autofocus maxlength="12" minlength="12">
-                                        <span class="glyphicon glyphicon-calendar form-control-feedback"></span>
-                                        @if ($errors->has('insurance_upto'))
-                                            <span class="help-block">
-                                                <strong>{{ $errors->first('insurance_upto') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-                            </div>
-    
-                           
-                            <div class="form-group has-feedback{{ $errors->has('pollution_upto') ? ' has-error' : '' }}">
-                                <div class="col-md-3 col-md-offset-1" style="font-weight: bold; font-size: 17px;">Pollution Upto</div>
-                                    <div class="col-md-7">                                    
-                                        <input id="pollution_upto" type="date" class="form-control" placeholder="Pollution Upto" name="pollution_upto">
-                                        <span class="glyphicon glyphicon-calendar form-control-feedback"></span>
-                                        @if ($errors->has('pollution_upto'))
-                                            <span class="help-block">
-                                                <strong>{{ $errors->first('pollution_upto') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-                            </div>
                             <hr>
                             <button type="submit" class="btn btn-primary col-md-2 col-md-offset-8">
                                     Submit

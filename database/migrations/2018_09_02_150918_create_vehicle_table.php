@@ -15,12 +15,10 @@ class CreateVehicleTable extends Migration
     {
         Schema::create('vehicle', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('owner_id');
             $table->string('rc_no');
             $table->string('class');
             $table->string('model');
-            // $table->string('vehicleID')->unique();
-            // $table->string('pollutionID');
-            // $table->string('healthCertificateID');
             $table->date('fitness_upto')->nullable();
             $table->string('fuel_type');
             $table->date('registration_date');
@@ -28,6 +26,7 @@ class CreateVehicleTable extends Migration
             $table->date('insurance_upto')->nullable();
             $table->date('pollution_upto')->nullable();
             $table->integer('penalty')->nullable();
+            $table->string('violation')->nullable();
             $table->timestamps();
         });
     }

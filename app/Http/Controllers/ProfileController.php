@@ -48,6 +48,7 @@ class ProfileController extends Controller
     {
         //
     }
+
     public function showProfile()
     {
         $id = auth()->user()->id;

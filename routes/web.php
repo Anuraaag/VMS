@@ -25,8 +25,7 @@ Route::post('/updateProfile','ProfileController@updateProfile')->name('updatePro
 Route::get('/showProfile','ProfileController@showProfile')->name('showProfile');
 
 
-//Vehicle
-Route::resource('vehicle' , 'VehicleController');
+//Vehicle Routes
 
 
 //Traffic Police Routes

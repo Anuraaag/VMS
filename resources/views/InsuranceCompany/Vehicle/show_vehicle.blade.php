@@ -10,28 +10,35 @@
                 {{-- <img src="assets/staticImages/{{Auth::user()->picture}}" height="100px" width="100px" class="img-circle" alt="User Image"> --}}
                 {{-- <hr> --}}
                 {{-- <div style="height:60px; text-align:center; color:blue; font-size:24px;" > {{$data->class}} </div>  --}}
+                
                 <hr>
                 <strong> RC Number :  {{$vehicle->rc_no}} </strong>
                 <hr>
                 <strong> Class :  {{$vehicle->class}} </strong>
                 <hr>
-                <strong> Fitness upto :  {{$vehicle->fitness_upto }} </strong>
-                <hr>
                 <strong> Fuel Type : {{$vehicle->fuel_type}} </strong>
-                <hr>
-                <strong> Registration Date : {{$vehicle->registration_date}}
                 <hr>
                 <strong> Engine Number : {{$vehicle->engine_number}} </strong>
                 <hr>
+                <strong> Registration Date : {{$vehicle->registration_date}}
+                <hr>    
                 <strong> Insurance Upto : {{$vehicle->insurance_upto}} </strong>
                 <hr>
                 <strong> Pollution Upto : {{$vehicle->pollution_upto}} </strong>
+                <hr>
+                <strong> Fitness upto :  {{$vehicle->fitness_upto }} </strong>
+                <hr>
+                <strong> Owner ID : {{$vehicle->owner_id}} </strong>
+                <hr>
+                <strong> Penalty : {{$vehicle->penalty}} </strong>
+                <hr>
+                <strong> Violation : {{$vehicle->violation}} </strong>
                 <hr>
               </div>
             </div>
 
             {{-- <button class="col-md-offset-8"><a href="{{route('editProfile')}}">Edit profile</a></button> --}}
-          </div>
+        </div>
       <hr>
     <small>Added on {{$vehicle->created_at}} </small>
     <hr>
