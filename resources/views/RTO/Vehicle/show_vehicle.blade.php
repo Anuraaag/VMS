@@ -1,7 +1,7 @@
 @extends('layouts.app4')
 
 @section('content')
-    {{-- <a href="/vehicles" class="btn btn-default">Go Back</a> --}}
+    <a href="{{route('RTO_vehicle.index')}}" class="btn btn-default">Go Back</a>
     <h1>{{$vehicle->model}}</h1>
     <br>
         <div class="container-fluid box box-primary">
@@ -37,12 +37,12 @@
               </div>
             </div>
 
-            {{-- <button class="col-md-offset-8"><a href="{{route('editProfile')}}">Edit profile</a></button> --}}
+            {{-- <button class="col-md-offset-8"><a href="{{route('')}}">Edit</a></button> --}}
         </div>
       <hr>
     <small>Added on {{$vehicle->created_at}} </small>
     <hr>
-    @if(!Auth::guest())
+    {{-- @if(!Auth::guest())
         @if(Auth::user()->id == $vehicle->user_id)
             <a href="/vehicles/{{$vehicle->id}}/edit" class="btn btn-default">Edit</a>
 
@@ -51,5 +51,5 @@
                 {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
             {!!Form::close()!!}
         @endif
-    @endif
+    @endif --}}
 @endsection

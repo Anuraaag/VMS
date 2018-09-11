@@ -55,7 +55,7 @@
 
                             <ul class="dropdown-menu">
                                 <li>
-                                <a href="{{route('vehicle.create')}}"> Add Vehicle </a>
+                                <a href="{{route('RTO_vehicle.create')}}"> Add Vehicle </a>
                                 </li>
                             </ul>
                         </li>

@@ -61,7 +61,7 @@ class RegisterController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|regex:"(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"|confirmed',
             'regID' => 'required|string',
-            'location' => 'required|regex:/^[a-zA-Z]+$/u|max:255',
+            'location' => 'required|string',
         ]);
     }
 

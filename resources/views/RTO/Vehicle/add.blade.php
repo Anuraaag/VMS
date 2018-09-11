@@ -8,7 +8,7 @@
            <div style="height:60px; text-align:center; color:blue; font-size:24px;" > Vehicle Registration </div>
 
                 <div>
-                    <form class="form-horizontal" method="POST" action="{{ route('vehicle.store') }}">
+                    <form class="form-horizontal" method="POST" action="{{ route('RTO_vehicle.store') }}">
                         {{ csrf_field() }}
 
                             <div class="form-group has-feedback{{ $errors->has('rc_no') ? ' has-error' : '' }} ">
@@ -95,6 +95,18 @@
                                         @if ($errors->has('owner_id'))
                                             <span class="help-block">
                                                 <strong>{{ $errors->first('owner_id') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                            </div>
+
+                            <div class="form-group has-feedback{{ $errors->has('insurance_id') ? ' has-error' : '' }}">
+                                    <div class="col-md-10 col-md-offset-1">
+                                        <input id="insurance_id" type="text" class="form-control" name="insurance_id" placeholder="Insurance ID" value="{{ old('insurance_id') }}" required autofocus minlength="1" >
+                                        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                                        @if ($errors->has('insurance_id'))
+                                            <span class="help-block">
+                                                <strong>{{ $errors->first('insurance_id') }}</strong>
                                             </span>
                                         @endif
                                     </div>

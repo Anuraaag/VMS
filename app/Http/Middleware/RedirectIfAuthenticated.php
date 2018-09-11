@@ -30,6 +30,18 @@ class RedirectIfAuthenticated
             }
             break;
 
+            case 'servicecenter':
+            if (Auth::guard($guard)->check()) {
+                return redirect('/servicecenter');
+            }
+            break;
+
+            case 'rto':
+            if (Auth::guard($guard)->check()) {
+                return redirect('/rto');
+            }
+            break;
+
             default:
             if (Auth::guard($guard)->check()) {
                 return redirect('/home');

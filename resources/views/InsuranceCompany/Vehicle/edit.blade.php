@@ -1,4 +1,4 @@
-@extends('layouts.app4')
+@extends('layouts.app2')
 
 @section('content')
 <div class="container">
@@ -9,7 +9,7 @@
 
                 <div>
 
-                    <form class="form-horizontal" method="POST" action="{{ route('vehicle.store') }}">
+                    {{-- <form class="form-horizontal" method="POST" action="{{ route(['Insurance_vehicle.update', $vehicle->id]) }}">
                         {{ csrf_field() }}
 
                             <div class="form-group has-feedback{{ $errors->has('rc_no') ? ' has-error' : '' }} ">
@@ -43,7 +43,26 @@
                                     Submit
                             </button>
                                 
-                    </form>
+                    </form> --}}
+
+
+                    {!! Form::model($vehicle, array('route' => array('Insurance_vehicle.update', $vehicle->id), 'method' => 'PUT', 'enctype' => 'multipart/form-data')) !!}
+            
+    
+                    <div class = "form-group">
+                    {{Form::label('rc_no','RC Number')}}
+                    {{Form::text('rc_no',$vehicle->rc_no, [ 'class' => 'form-control', 'placeholder' => 'RC Number'])}}
+
+                    {{Form::label('insurance_upto','Insurance Upto')}}
+                    {{Form::date('insurance_upto',$vehicle->insurance_upto, [ 'class' => 'form-control', 'placeholder' => 'insurance upto'])}}
+                    </div>
+    
+            
+            
+                    {{Form::hidden('method','PUT')}}
+                    {{Form::submit('Update',['class'=>'btn btn-primary'])}}
+    
+                    {!! Form::close() !!} 
                 </div>  
         </div>
     </div>

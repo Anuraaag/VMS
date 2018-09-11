@@ -3,33 +3,45 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\RTO;
-use App\Vehicle;
-use Auth;
-use DB;
+use App\Vehicle;    
 
-class VehicleController extends Controller
+class VehicleController_RTO extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
 
-     // public function __construct()
-    // {
-    //     $this->middleware('auth:rto');
-    // }
     
-    
-    public function index()
+     public function __construct()
     {
-        $vehicles = Vehicle::orderby('created_at', 'desc')->paginate(5);
-        return view('Vehicle.index')->with('vehicles',$vehicles);
+        $this->middleware('auth:rto');
     }
- 
 
+
+     public function index()
+    {
+        $vehicles = Vehicle::orderby('created_at','desc')->paginate(3);
+        return view('RTO.Vehicle.show_index')->with('vehicles', $vehicles);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function create()
     {
-        return view('Vehicle.add');
+        return view('RTO.Vehicle.add');
     }
 
-
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(Request $request)
     {
         $this->validate($request, [
@@ -50,33 +62,65 @@ class VehicleController extends Controller
         $vehicle->registration_date = $request->input('registration_date');
         $vehicle->engine_number = $request->input('engine_number');
         $vehicle->owner_id = $request->input('owner_id');
+        $vehicle->insurance_id = $request->input('insurance_id');
 
         $vehicle->save();
 
-        return redirect('vehicle')->with('success','Vehicle added' );
-       
+        return redirect('RTO_vehicle')->with('success','Vehicle added' );
     }
 
-
-    public function show_index()
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
     {
-        $vehicles = Vehicle::orderby('created_at','desc')->paginate(3);
-        return view('auth.Vehicle.show_index')->with('vehicles', $vehicles);
-    }
-    
-
-    public function show_vehicle()
-    {
-        $id = auth()->user()->id;
         $vehicle = Vehicle::find($id);
         return view('auth.Vehicle.show_vehicle')->with('vehicle', $vehicle);
     }
 
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response    
+     */
+    // public function edit($id)
+    // {
+    //     $vehicle = Vehicle::find($id);
+    //     return view('RTO.Vehicle.edit')->with('vehicle', $vehicle);
+    // }
 
-    public function editVehicle()
-    {
-        $id = auth()->user()->id;
-        $vehicle = User::find($id);
-        return view('RTO.Vehicle.edit')->with('vehicle', $vehicle);
-    }
+    // /**
+    //  * Update the specified resource in storage.
+    //  *
+    //  * @param  \Illuminate\Http\Request  $request
+    //  * @param  int  $id
+    //  * @return \Illuminate\Http\Response
+    //  */
+ 
+    //  public function update(Request $request, $id)
+    // {
+    //     $this->validate($request, [
+    //         'owner_id' => 'required|numeric',
+    //     ]);
+        
+    //     $user_id = Vehicle::user()->id;
+
+    //     DB::table('users')->where('id', $user_id)->update(['owner_id' => $request->input('owner_id')]);
+    //     return redirect('showProfile');                   
+    // }
+
+    // /**
+    //  * Remove the specified resource from storage.
+    //  *
+    //  * @param  int  $id
+    //  * @return \Illuminate\Http\Response
+    //  */
+    // public function destroy($id)
+    // {
+    //     //
+    // }
 }

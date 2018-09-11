@@ -11,4 +11,11 @@ class Vehicle extends Model
     public $primaryKey = 'id';
 
     public $timestamps = true;
+
+
+    public function insurancecompany()
+    {
+        return $this->belongsTo('App\InsuranceCompany', 'insurance_id');
+    }
+
 }

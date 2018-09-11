@@ -1,4 +1,4 @@
-@extends('layouts.app4')
+@extends('layouts.app2')
 
 @section('content')
     {{-- <a href="/vehicles" class="btn btn-default">Go Back</a> --}}
@@ -42,14 +42,4 @@
       <hr>
     <small>Added on {{$vehicle->created_at}} </small>
     <hr>
-    @if(!Auth::guest())
-        @if(Auth::user()->id == $vehicle->user_id)
-            <a href="/vehicles/{{$vehicle->id}}/edit" class="btn btn-default">Edit</a>
-
-            {!!Form::open(['action' => ['VehiclesController@destroy', $vehicle->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
-                {{Form::hidden('_method', 'DELETE')}}
-                {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
-            {!!Form::close()!!}
-        @endif
-    @endif
 @endsection

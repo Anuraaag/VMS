@@ -7,7 +7,7 @@
             <div class="well">
                 <div class="row">
                     <div class="col-md-8 col-sm-8">
-                        <h3><a href="/vehicle/{{$vehicle->id}}"> {{$vehicle->model}} </a></h3>
+                        <h3><a href="/RTO_vehicle/{{$vehicle->id}}"> {{$vehicle->model}} </a></h3>
                         <small>Added on {{$vehicle->created_at}} </small>
                     </div>
                 </div>

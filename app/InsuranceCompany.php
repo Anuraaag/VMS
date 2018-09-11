@@ -10,12 +10,16 @@ class InsuranceCompany extends Authenticatable
     use Notifiable;
 
     protected $guard = 'insurancecompany';
+    // protected $table = 'insurance_companies';
+    // public $primaryKey = 'id';
+
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
+
     protected $fillable = [
         'name', 'email', 'regID', 'password', 'location',
     ];
@@ -29,5 +33,8 @@ class InsuranceCompany extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function vehicles(){
+        return $this->hasMany('App\Vehicle', 'insurance_id');
+    }
 }
 
