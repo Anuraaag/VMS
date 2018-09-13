@@ -10,8 +10,7 @@
                   <div class="col-md-12">
                     <div class="info-box">
                       <div class="callout callout-success">
-                       {{-- @if(count($bookings) > 0)--}}
-                        <h3 class="box-title"><strong>Vehicles</strong></h3></div>
+                            <h3 class="box-title"><strong>Insured Vehicles</strong></h3></div>
               
                         <div class="box-body table-responsive ">
                     <table class="table table-hover">
@@ -27,10 +26,10 @@
                         <tbody>
                             @foreach($vehicles as $vehicle)
                                 <tr>
-                                    <th>{{$vehicle->rc_no}}</th>
-                                    <th>{{$vehicle->model}}</th>
-                                    <th>{{$vehicle->insurance_upto}}</th>
-                                    <th><a href="Insurance_vehicle/{{$vehicle->id}}/edit" class = "btn btn-success">Edit</a></th>
+                                    <td>{{$vehicle->rc_no}}</td>
+                                    <td>{{$vehicle->model}}</td>
+                                    <td>{{$vehicle->insurance_upto}}</td>
+                                    <td><a href="Insurance_vehicle/{{$vehicle->id}}/edit" class = "btn btn-success">Edit</a></td>
                                 </tr>
                             @endforeach
                         </tbody>

@@ -46,6 +46,17 @@
                             <li><a href="{{ route('servicecenter.login') }}">Login</a></li>
                             <li><a href="{{ route('servicecenter.register') }}">Register</a></li>
                         @else
+
+
+                        <li>
+                                <a href="{{route('servicecenter.all')}}"> All Vehicles </a>
+                        </li>    
+
+                        <li>
+                            <a href="{{route('servicecenter.home')}}"> Home </a>
+                        </li>
+
+
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                                     {{ Auth::user()->name}} <span class="caret"></span>

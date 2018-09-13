@@ -1,6 +1,6 @@
-@extends('layouts.app4')
+@extends('layouts.app3')
 
-@section('content')
+{{-- @section('content')
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -56,6 +56,47 @@
                             </button>
                                 
                     </form>
+                </div>  
+        </div>
+    </div>
+</div>
+@endsection --}}
+
+
+
+
+
+
+
+@section('content')
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            
+           <div style="height:60px; text-align:center; color:blue; font-size:24px;" > Registered Vehicles </div>
+
+                <div>
+
+
+                    {!! Form::model($vehicle, array('route' => array('Service_vehicle.update', $vehicle->id), 'method' => 'PUT', 'enctype' => 'multipart/form-data')) !!}
+            
+    
+                    <div class = "form-group">
+
+                        {{Form::label('rc_no','RC Number')}}
+                        {{Form::text('rc_no',$vehicle->rc_no, [ 'class' => 'form-control', 'placeholder' => 'RC Number'])}}
+
+                        {{Form::label('fitness_upto','Fitness Upto')}}
+                        {{Form::date('fitness_upto',$vehicle->fitness_upto, [ 'class' => 'form-control', 'placeholder' => 'fitness upto'])}}
+                    
+                        {{Form::label('pollution_upto','Pollution Upto')}}
+                        {{Form::date('pollution_upto',$vehicle->pollution_upto, [ 'class' => 'form-control', 'placeholder' => 'pollution upto'])}}
+                    </div>    
+            
+                    {{Form::hidden('method','PUT')}}
+                    {{Form::submit('Update',['class'=>'btn btn-primary'])}}
+    
+                    {!! Form::close() !!} 
                 </div>  
         </div>
     </div>

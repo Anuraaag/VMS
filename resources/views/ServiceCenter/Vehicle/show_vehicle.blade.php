@@ -30,10 +30,10 @@
                 <hr>
                 <strong> Owner ID : {{$vehicle->owner_id}} </strong>
                 <hr>
-                <strong> Penalty : {{$vehicle->penalty}} </strong>
+                {{-- <strong> Penalty : {{$vehicle->penalty}} </strong>
                 <hr>
                 <strong> Violation : {{$vehicle->violation}} </strong>
-                <hr>
+                <hr> --}}
               </div>
             </div>
 

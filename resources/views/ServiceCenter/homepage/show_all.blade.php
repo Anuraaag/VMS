@@ -1,4 +1,4 @@
-@extends('layouts.app1')
+@extends('layouts.app3')
 
 @section('content')
 <div class="container-fluid">
@@ -10,7 +10,7 @@
                   <div class="col-md-12">
                     <div class="info-box">
                       <div class="callout callout-success">
-                            <h3 class="box-title"><strong>Complaints</strong></h3></div>
+                            <h3 class="box-title"><strong>All Vehicles</strong></h3></div>
               
                         <div class="box-body table-responsive ">
                         <table class="table table-hover">
@@ -31,7 +31,7 @@
                                     <td>{{$vehicle->model}}</td>
                                     <td>{{$vehicle->fitness_upto}}</td>
                                     <td>{{$vehicle->pollution_upto}}</td>
-                                    <td><a href="Service_vehicle/{{$vehicle->id}}/edit" class = "btn btn-success">Edit</a></td>
+                                    <td><a href="{{route('Service_vehicle.edit', [$vehicle->id])}}" class = "btn btn-success">Edit</a></td>
                                 </tr>
                             @endforeach
                         </tbody>

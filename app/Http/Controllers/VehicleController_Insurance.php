@@ -62,12 +62,13 @@ class VehicleController_Insurance extends Controller
      */
     public function edit($id)
     {
+    
         $vehicle = Vehicle::find($id);
 
         //Check for correct user
-         if(auth()->user()->id != $vehicle->insurance_id){
-             return redirect('/insurancecompany')->with('error' , 'Unauthorized page');
-        }
+        //  if(auth()->user()->id != $vehicle->insurance_id){
+        //      return redirect('/insurancecompany')->with('error' , 'Unauthorized page');
+        // }
         return view('InsuranceCompany.Vehicle.edit')->with('vehicle',$vehicle);
     }
 
@@ -87,6 +88,7 @@ class VehicleController_Insurance extends Controller
         //update insurance
         $vehicles = Vehicle::find($id);
         $vehicles->insurance_upto = $request->input('insurance_upto');
+        $vehicles->insurance_id = auth()->user()->id;
         $vehicles->save();
 
         return redirect('/insurancecompany')->with('success','Vehicle Updated');

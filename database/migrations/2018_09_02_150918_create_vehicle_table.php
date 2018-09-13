@@ -16,7 +16,7 @@ class CreateVehicleTable extends Migration
         Schema::create('vehicle', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('owner_id')->nullable();
-            $table->string('rc_no');
+            $table->string('rc_no')->unique();
             $table->string('class');
             $table->string('model');
             $table->date('fitness_upto')->nullable();
@@ -25,11 +25,10 @@ class CreateVehicleTable extends Migration
             $table->string('engine_number');
             $table->date('insurance_upto')->nullable();
             $table->date('pollution_upto')->nullable();
-            $table->integer('penalty')->nullable();
-            $table->string('violation')->nullable();
             $table->integer('insurance_id')->nullable();
             $table->integer('service_id')->nullable();
-            $table->integer('traffic_id')->nullable();
+            $table->integer('traffic_id')->nullable(); // in complaints table
+            $table->integer('rto_id');
             $table->timestamps();
         });
     }

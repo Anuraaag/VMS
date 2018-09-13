@@ -47,20 +47,14 @@
                             <li><a href="{{ route('insurancecompany.register') }}">Register</a></li>
                         @else
                             
-                            <li class="dropdown">
-                                {{--<li><a href="#">Vehicle</a></li>--}}
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-                                    Vehicle <span class="caret"></span>
-                                </a>
-    
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <a href="{{route('Insurance_vehicle.index')}}"> Update Insurance </a> 
-                                        </li>
-                                    </ul>
+                            <li> 
+                                    <a href="{{route('insurancecompany.all')}}"> Add Vehicle  </a>
                             </li>
-                        
-                        
+
+                            <li>
+                                <a href="{{route('insurancecompany.home')}}"> Home </a>
+                            </li>
+
                         
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>

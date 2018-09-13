@@ -1,4 +1,4 @@
-@extends('layouts.app4')
+@extends('layouts.app')
 
 @section('content')
     {{-- <a href="/vehicles" class="btn btn-default">Go Back</a> --}}

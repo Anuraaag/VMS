@@ -100,17 +100,7 @@
                                     </div>
                             </div>
 
-                            <div class="form-group has-feedback{{ $errors->has('insurance_id') ? ' has-error' : '' }}">
-                                    <div class="col-md-10 col-md-offset-1">
-                                        <input id="insurance_id" type="text" class="form-control" name="insurance_id" placeholder="Insurance ID" value="{{ old('insurance_id') }}" required autofocus minlength="1" >
-                                        <span class="glyphicon glyphicon-user form-control-feedback"></span>
-                                        @if ($errors->has('insurance_id'))
-                                            <span class="help-block">
-                                                <strong>{{ $errors->first('insurance_id') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-                            </div>
+                            
     
                             <hr>
                             <button type="submit" class="btn btn-primary col-md-2 col-md-offset-8">

@@ -29,4 +29,9 @@ class RTO extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function vehicles(){
+        return $this->hasMany('App\Vehicle', 'rto_id');
+    }
+
 }

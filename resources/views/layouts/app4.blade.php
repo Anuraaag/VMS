@@ -48,7 +48,7 @@
                         @else
                             
                         <li class="dropdown">
-                            {{--<li><a href="#">Vehicle</a></li>--}}
+
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                                 Vehicle <span class="caret"></span>
                             </a>
@@ -58,9 +58,7 @@
                                 <a href="{{route('RTO_vehicle.create')}}"> Add Vehicle </a>
                                 </li>
                             </ul>
-                        </li>
-
-                        
+                        </li>     
                         
                         <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>

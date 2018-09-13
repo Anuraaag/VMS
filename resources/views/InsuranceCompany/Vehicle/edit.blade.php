@@ -56,9 +56,7 @@
                     {{Form::label('insurance_upto','Insurance Upto')}}
                     {{Form::date('insurance_upto',$vehicle->insurance_upto, [ 'class' => 'form-control', 'placeholder' => 'insurance upto'])}}
                     </div>
-    
-            
-            
+                    
                     {{Form::hidden('method','PUT')}}
                     {{Form::submit('Update',['class'=>'btn btn-primary'])}}
     

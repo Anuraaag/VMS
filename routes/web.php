@@ -82,7 +82,8 @@ Route::group(['namespace' => 'TrafficPolice'], function(){
 Route::group(['namespace' => 'InsuranceCompany'], function(){
 
     Route::prefix('insurancecompany')->group(function(){
-        Route::get('/', 'HomeController@index')->name('insurancecompany.home');
+		Route::get('/', 'HomeController@index')->name('insurancecompany.home');
+		Route::get('showall', 'HomeController@index1')->name('insurancecompany.all');
         Route::get('login', 'Auth\LoginController@showLoginForm')->name('insurancecompany.login');
 		Route::post('login', 'Auth\LoginController@login');
 		Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('insurancecompany.register');
@@ -102,6 +103,7 @@ Route::group(['namespace' => 'ServiceCenter'], function(){
 
 	Route::prefix('servicecenter')->group(function(){			
 		Route::get('/', 'HomeController@index')->name('servicecenter.home');
+		Route::get('showall', 'HomeController@index1')->name('servicecenter.all');
 		Route::get('login', 'Auth\LoginController@showLoginForm')->name('servicecenter.login');
 		Route::post('login', 'Auth\LoginController@login');
 		Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('servicecenter.register');

@@ -45,7 +45,7 @@ class VehicleController_RTO extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'rc_no' => 'required|regex:/^[a-zA-Z0-9]+$/u',
+            'rc_no' => 'required|unique:vehicle|regex:/^[a-zA-Z0-9]+$/u',
             'class' => 'required|string',
             'model' => 'required',
             'fuel_type' => 'required',
@@ -62,7 +62,8 @@ class VehicleController_RTO extends Controller
         $vehicle->registration_date = $request->input('registration_date');
         $vehicle->engine_number = $request->input('engine_number');
         $vehicle->owner_id = $request->input('owner_id');
-        $vehicle->insurance_id = $request->input('insurance_id');
+        //$vehicle->insurance_id = $request->input('insurance_id');
+        $vehicle->rto_id = auth()->user()->id;
 
         $vehicle->save();
 
@@ -78,7 +79,7 @@ class VehicleController_RTO extends Controller
     public function show($id)
     {
         $vehicle = Vehicle::find($id);
-        return view('auth.Vehicle.show_vehicle')->with('vehicle', $vehicle);
+        return view('RTO.Vehicle.show_vehicle')->with('vehicle', $vehicle);
     }
 
     /**

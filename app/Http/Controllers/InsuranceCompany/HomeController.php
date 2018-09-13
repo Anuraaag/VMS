@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\InsuranceCompany;
+use App\Vehicle;
 
 class HomeController extends Controller
 {
@@ -28,6 +29,13 @@ class HomeController extends Controller
     {
         $user_id = auth()->user()->id;
         $user = InsuranceCompany::find($user_id);
+        // $vehicles = Vehicle::all();
         return view('InsuranceCompany.homepage.home')->with('vehicles', $user->vehicles);
+    }
+
+    public function index1()
+    {
+        $vehicles = Vehicle::all();
+        return view('InsuranceCompany.homepage.show_all')->with('vehicles', $vehicles);
     }
 }
