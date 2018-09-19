@@ -15,11 +15,13 @@ class CreateComplaintsTable extends Migration
     {
         Schema::create('complaints', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('complaint_id');
             $table->integer('penalty'); 
             $table->boolean('status')->default(0); //0->paid   1->pending
             $table->string('violation'); 
-            $table->integer('traffic_id');
+            $table->unsignedinteger('traffic_id')->nullable();
+            $table->foreign('traffic_id')->references('id')->on('traffic_polices')->onDelete('cascade');
+            $table->unsignedinteger('vid')->nullable();
+            $table->foreign('vid')->references('id')->on('vehicle')->onDelete('cascade');
             $table->string('area');
             $table->timestamps();
         });

@@ -58,7 +58,9 @@ Route::resource('Traffic_vehicle', 'VehicleController_Traffic');
 
 Route::resource('Owner_vehicle', 'VehicleController_Owner');
 
-
+//Complaint routes
+Route::resource('Complaints', 'ComplaintsController');
+Route::POST('addComplaint', 'ComplaintsController@addComplaint')->name('Complaints.addComplaint');
 
 
 //Traffic Police Routes

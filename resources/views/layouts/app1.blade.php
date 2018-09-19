@@ -47,7 +47,9 @@
                             <li><a href="{{ route('trafficpolice.register') }}">Register</a></li>
                         @else
 
-            
+                            <li>
+                                <a href="{{route('trafficpolice.home')}}"> Home </a>
+                            </li>
 
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>

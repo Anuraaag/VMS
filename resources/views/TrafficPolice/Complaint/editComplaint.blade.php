@@ -1,4 +1,4 @@
-@extends('layouts.app4')
+@extends('layouts.app1')
 
 @section('content')
 <div class="container">
@@ -22,7 +22,7 @@
                                     @endif
                                 </div>
                             </div>
-
+                            
                             <hr>
                             <div class="form-group has-feedback{{ $errors->has('penalty') ? ' has-error' : '' }} ">
                                     <div class="col-md-10 col-md-offset-1">

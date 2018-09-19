@@ -1,5 +1,5 @@
 @extends('layouts.app1')
-
+{{-- 
 @section('content')
 <div class="container-fluid">
         <div class="box box-primary">
@@ -45,4 +45,4 @@
         </div>
       </div>
     
-@endsection
+@endsection --}}

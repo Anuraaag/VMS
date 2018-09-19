@@ -1,33 +1,63 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="container-fluid col-md-6 col-md-offset-1">
 
-<section class="content">
-        <div class="container-fluid box box-primary">
-          <div class="box-header with-border row">
-            <div class="col-md-4 col-md-offset-4"  style="border-left: 1px solid black; border-right: 1px solid black; text-align: center;" >
-              {{-- <img src="assets/staticImages/{{Auth::user()->picture}}" height="100px" width="100px" class="img-circle" alt="User Image"> --}}
-              {{-- <hr> --}}
-              <div style="height:60px; text-align:center; color:blue; font-size:24px;" >  My Profile </div> 
-              <hr>
-              <strong> Name :  {{$data->fname}} {{$data->lname}} </strong>
-              <hr>
-              <strong> Gender :  {{$data->gender}} </strong>
-              <hr>
-              <strong> Email :  {{$data->email}} </strong>
-              <hr>
-              <strong> Age :  {{\Carbon\Carbon::parse($data->dob)->diff(\Carbon\Carbon::now())->format('%y years')}} </strong>
-              <hr>
-              <strong> Phone Number : {{$data->phone}} </strong>
-              <hr>
-              <strong> License Number : {{$data->license_no}}
-              <hr>
-              <strong> Aadhar Number : {{$data->aadhar_no}} </strong>
-              <hr>
-            </div>
-          </div>
-          <button class="col-md-offset-8"><a href="{{route('editProfile')}}">Edit profile</a></button>
-        </div>
-      </section>
-      
+    <div> <strong> <h2> My Profile </h2></strong> <small> ( Member from {{$data->created_at}} ) </small> </div>   
+
+    <button class=" from-control col-md-offset-10"><a href="{{route('editProfile')}}">Edit profile</a></button>
+
+    <div style="padding-top: 10px;"> 
+
+        <table class="table table-responsive table-striped table-bordered thead-dark"> {{--table-dark--}}
+            <thead>
+                <tr>
+                    <th>Detail</th>    
+                    <th>Value</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                    <tr>
+                        <th> Name </th>
+                        <td> {{$data->fname}} {{$data->lname}}</td>
+                    </tr>
+
+                    <tr>
+                        <th> Gender </th>
+                        <td>{{$data->gender}}</td>
+                    </tr>
+
+                    <tr>
+                        <th> Email </th>
+                        <td>{{$data->email}}</td>
+                    </tr>
+        
+                    <tr>
+                        <th> Age </th>
+                        <td>{{\Carbon\Carbon::parse($data->dob)->diff(\Carbon\Carbon::now())->format('%y years')}}</td>
+                    </tr>
+
+                    <tr>
+                        <th> Phone Number </th>
+                        <td>{{$data->phone}}</td>
+                    </tr>
+
+                    <tr>
+                        <th> License Number </th>
+                        <td>{{$data->license_no}}</td>
+                    </tr>
+            
+                    <tr>
+                        <th> Aadhar Number </th>
+                        <td>{{$data->aadhar_no}}</td>
+                    </tr>
+
+            </tbody>    
+        </table>   
+    </div>
+</div>
+
+ 
 @endsection
+

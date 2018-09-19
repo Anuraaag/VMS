@@ -33,4 +33,8 @@ class Vehicle extends Model
         return $this->belongsTo('App\Auth', 'owner_id');
     }
 
+    // public function complaints(){
+    //     return $this->hasMany('App\Complaint', '');
+    // }
+
 }

@@ -14,13 +14,13 @@ class VehicleController_RTO extends Controller
      */
 
     
-     public function __construct()
+    public function __construct()
     {
         $this->middleware('auth:rto');
     }
 
 
-     public function index()
+    public function index()
     {
         $vehicles = Vehicle::orderby('created_at','desc')->paginate(3);
         return view('RTO.Vehicle.show_index')->with('vehicles', $vehicles);

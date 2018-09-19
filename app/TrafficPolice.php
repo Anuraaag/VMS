@@ -28,4 +28,9 @@ class TrafficPolice extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function complaints()
+    {
+        return $this->hasMany('App\Complaint','traffic_id');
+    }
 }

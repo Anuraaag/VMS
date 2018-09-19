@@ -12,11 +12,10 @@
                     <form class="form-horizontal" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-
+                        <div class="form-group has-feedback{{ $errors->has('email') ? ' has-error' : '' }}">
                             <div class="col-md-10 col-md-offset-1">
                                 <input id="email" type="email" placeholder="Email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
-
+                                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                                 @if ($errors->has('email'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
@@ -25,11 +24,10 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-
+                        <div class="form-group has-feedback{{ $errors->has('password') ? ' has-error' : '' }}">
                             <div class="col-md-10 col-md-offset-1">
                                 <input id="password" type="password" placeholder="Password" class="form-control" name="password" required>
-
+                                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                                 @if ($errors->has('password'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('password') }}</strong>

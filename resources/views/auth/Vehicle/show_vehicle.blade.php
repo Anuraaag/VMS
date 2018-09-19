@@ -1,55 +1,69 @@
 @extends('layouts.app')
 
+
 @section('content')
-    {{-- <a href="/vehicles" class="btn btn-default">Go Back</a> --}}
-    <h1>{{$vehicle->model}}</h1>
-    <br>
-        <div class="container-fluid box box-primary">
-            <div class="box-header with-border row">
-              <div class="col-md-4 col-md-offset-4"  style="border-left: 1px solid black; border-right: 1px solid black; text-align: center;" >
-                {{-- <img src="assets/staticImages/{{Auth::user()->picture}}" height="100px" width="100px" class="img-circle" alt="User Image"> --}}
-                {{-- <hr> --}}
-                {{-- <div style="height:60px; text-align:center; color:blue; font-size:24px;" > {{$data->class}} </div>  --}}
-                
-                <hr>
-                <strong> RC Number :  {{$vehicle->rc_no}} </strong>
-                <hr>
-                <strong> Class :  {{$vehicle->class}} </strong>
-                <hr>
-                <strong> Fuel Type : {{$vehicle->fuel_type}} </strong>
-                <hr>
-                <strong> Engine Number : {{$vehicle->engine_number}} </strong>
-                <hr>
-                <strong> Registration Date : {{$vehicle->registration_date}}
-                <hr>    
-                <strong> Insurance Upto : {{$vehicle->insurance_upto}} </strong>
-                <hr>
-                <strong> Pollution Upto : {{$vehicle->pollution_upto}} </strong>
-                <hr>
-                <strong> Fitness upto :  {{$vehicle->fitness_upto }} </strong>
-                <hr>
-                <strong> Owner ID : {{$vehicle->owner_id}} </strong>
-                <hr>
-                <strong> Penalty : {{$vehicle->penalty}} </strong>
-                <hr>
-                <strong> Violation : {{$vehicle->violation}} </strong>
-                <hr>
-              </div>
-            </div>
+<div class="container-fluid col-md-6 col-md-offset-1">
 
-            {{-- <button class="col-md-offset-8"><a href="{{route('editProfile')}}">Edit profile</a></button> --}}
-        </div>
-      <hr>
-    <small>Added on {{$vehicle->created_at}} </small>
-    <hr>
-    @if(!Auth::guest())
-        @if(Auth::user()->id == $vehicle->user_id)
-            <a href="/vehicles/{{$vehicle->id}}/edit" class="btn btn-default">Edit</a>
+    <div style="padding-bottom:30px;" class="col-md-12"> <strong> <h2> {{$vehicle->model}} </h2></strong> <small> ( Added on {{$vehicle->created_at}} ) </small> </div>   
+    <div style="padding-top: 10px;"> 
+        <table class="table table-responsive table-striped table-bordered thead-dark"> {{--table-dark--}}
+            <thead>
+                <tr>
+                    <th>Details</th>    
+                    <th>Value</th>
+                </tr>
+            </thead>
 
-            {!!Form::open(['action' => ['VehiclesController@destroy', $vehicle->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
-                {{Form::hidden('_method', 'DELETE')}}
-                {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
-            {!!Form::close()!!}
-        @endif
-    @endif
+            <tbody>
+                    <tr>
+                        <th>RC Number</th>
+                        <td>{{$vehicle->rc_no}}</td>
+                    </tr>
+
+                    <tr>
+                        <th>Class</th>
+                        <td>{{$vehicle->class}}</td>
+                    </tr>
+
+                    <tr>
+                        <th>Fuel Type</th>
+                        <td>{{$vehicle->fuel_type}}</td>
+                    </tr>
+        
+                    <tr>
+                        <th>Engine Number</th>
+                        <td>{{$vehicle->engine_number}}</td>
+                    </tr>
+
+                    <tr>
+                        <th>Registration Date</th>
+                        <td>{{$vehicle->registration_date}}</td>
+                    </tr>
+
+                    <tr>
+                        <th>Insurance Upto</th>
+                        <td>{{$vehicle->insurance_upto}}</td>
+                    </tr>
+            
+                    <tr>
+                        <th>Pollution Upto</th>
+                        <td>{{$vehicle->pollution_upto}}</td>
+                    </tr>
+
+                    <tr>
+                        <th>Fitness Upto</th>
+                        <td>{{$vehicle->fitness_upto}}</td>
+                    </tr>
+
+                    <tr>
+                        <th>Owner ID</th>
+                        <td>{{$vehicle->owner_id}}</td>
+                    </tr>
+
+            </tbody>    
+        </table>   
+    </div>
+</div>
+
+ 
 @endsection

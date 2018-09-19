@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'fname', 'lname', 'email', 'phone', 'gender', 'dob', 'password','license_no','aadhar_no',
+        'fname', 'lname', 'email', 'phone', 'gender', 'dob', 'location', 'password','license_no','aadhar_no',
     ];
 
     /**
@@ -32,5 +32,4 @@ class User extends Authenticatable
     public function vehicles(){
         return $this->hasMany('App\Vehicle', 'owner_id');
     }
-
 }

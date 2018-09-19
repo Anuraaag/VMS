@@ -1,6 +1,23 @@
 @extends('layouts.app')
 
+
 @section('content')
+
+<script src="https://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places&amp;region=in" type="text/javascript"></script>
+    
+<script type="text/javascript">
+
+    google.maps.event.addDomListener(window, 'load', function(){
+        var places = new google.maps.places.Autocomplete(document.getElementById('location'));
+        google.maps.event.addListener(places, 'place_changed', function () {
+            var place = places.getPlace();
+            var address = place.formatted_address;
+            var latitude = place.geometry.location.lat();
+            var longitude = place.geometry.location.lng();
+        });
+    });
+</script>
+
 <div class="container">
     <div class="row">
         <div class="col-md-4 col-md-offset-9" style="border-left: 1px solid black;">
@@ -79,7 +96,8 @@
                         <div class="form-group has-feedback{{ $errors->has('phone') ? ' has-error' : '' }}">
                                 <div class="col-md-10 col-md-offset-1">
                                     <input id="phone" type="text" class="form-control" name="phone" placeholder="Phone Number" value="{{ old('phone') }}" required autofocus maxlength="10" minlength="10" >
-                                    <span class="glyphicon glyphicon-earphone form-control-feedback"></span>                                    @if ($errors->has('phone'))
+                                    <span class="glyphicon glyphicon-earphone form-control-feedback"></span>                                    
+                                    @if ($errors->has('phone'))
                                         <span class="help-block">
                                             <strong>{{ $errors->first('phone') }}</strong>
                                         </span>
@@ -87,6 +105,19 @@
                                 </div>
                         </div>
                             
+                        <div class="form-group has-feedback{{ $errors->has('location') ? ' has-error' : '' }}">
+                            <div class="col-md-10 col-md-offset-1">
+                                <input id="location" type="text" class="form-control" name="location" placeholder="Location" value="{{ old('location') }}" required autofocus>
+                                <input type="hidden" id="google_code" name="google_code"> 
+                                <span class="glyphicon glyphicon-map-marker form-control-feedback"></span>                                    
+                                @if ($errors->has('location'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('location') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
 
                         <div class="form-group has-feedback {{ $errors->has('license_no') ? ' has-error' : '' }}">
                             <div class="col-md-10 col-md-offset-1">
@@ -117,7 +148,7 @@
                         <div class="form-group has-feedback{{ $errors->has('password') ? ' has-error' : '' }}">
                             <div class="col-md-10 col-md-offset-1">
                                 <input id="password" type="password" class="form-control" placeholder="Password" name="password" required>
-                                <span class="glyphicon glyphicon-asterisk form-control-feedback"></span>
+                                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                                 @if ($errors->has('password'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('password') }}</strong>
@@ -129,7 +160,7 @@
                         <div class="form-group has-feedback">
                             <div class="col-md-10 col-md-offset-1">
                                 <input id="password-confirm" type="password" placeholder="Confirm Password" class="form-control" name="password_confirmation" required><br>
-                                <span class="glyphicon glyphicon-asterisk form-control-feedback"></span>
+                                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                             </div>
                         </div>
 

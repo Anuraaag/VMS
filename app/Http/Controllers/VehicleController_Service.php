@@ -89,7 +89,7 @@ class VehicleController_Service extends Controller
             'fitness_upto' => 'required|date'
         ]);
 
-        //update insurance
+        //update service
         $vehicles = Vehicle::find($id);
         $vehicles->pollution_upto = $request->input('pollution_upto');
         $vehicles->fitness_upto = $request->input('fitness_upto');

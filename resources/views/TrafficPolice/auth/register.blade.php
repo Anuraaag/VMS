@@ -1,6 +1,22 @@
 @extends('layouts.app1')
 
 @section('content')
+
+<script src="https://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places&amp;region=in" type="text/javascript"></script>
+    
+<script type="text/javascript">
+
+    google.maps.event.addDomListener(window, 'load', function(){
+        var places = new google.maps.places.Autocomplete(document.getElementById('location'));
+        google.maps.event.addListener(places, 'place_changed', function () {
+            var place = places.getPlace();
+            var address = place.formatted_address;
+            var latitude = place.geometry.location.lat();
+            var longitude = place.geometry.location.lng();
+        });
+    });
+</script>
+
 <div class="container">
     <div class="row">
         <div class="col-md-4 col-md-offset-9" style="border-left: 1px solid black;">
@@ -43,7 +59,7 @@
 
                             <div class="col-md-10 col-md-offset-1">
                                 <input id="location" type="text" class="form-control" placeholder="Location" name="location" value="{{ old('location') }}" required autofocus>
-
+                                <input type="hidden" id="google_code" name="google_code"> 
                                 @if ($errors->has('location'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('location') }}</strong>
